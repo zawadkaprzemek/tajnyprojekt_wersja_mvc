@@ -2,5 +2,7 @@
 composer.lock
 vendor
 assets/video
-
+assets/img/gallery
+assets/img/avatars/*
+/.idea/workspace.xml
 
