@@ -1,17 +1,17 @@
 <?php
 class Photo{
-    public $name;
-    public $extension;
-    public $path;
-    public $realpath;
-    public $thumb;
-    public $thumbpath;
-    public $real_thumpath;
-    public $width;
-    public $height;
-    public $img;
-    public $scale;
-    public $thumbscale;
+    private $name;
+    private $extension;
+    private $path;
+    private $realpath;
+    private $thumb;
+    private $thumbpath;
+    private $real_thumpath;
+    private $width;
+    private $height;
+    private $img;
+    private $scale;
+    private $thumbscale;
 
     const MAXWIDTH = 800;
     const MAXHEIGHT = 800;
@@ -53,7 +53,11 @@ class Photo{
                             $this->real_thumpath);
                         break;
                     case 'gif':
-                        $this->img=imagecreatefromgif($file);
+                        $this->thumb=$this->save_gif_thumb($thumb_image,$new_image,$thumbwidth,$thumbheight,$newwidth,
+                            $newheight,$this->real_thumpath);
+                        $this->img=$this->save_gif($file,$newwidth,$newheight,$this->realpath);
+
+                        //var_dump($this);
                         break;
                     default:
                         return false;
@@ -194,8 +198,27 @@ class Photo{
     }
 
     //zapis jako git
-    private function save_gif($new_image,$image,$width,$height,$oldwidth,$oldheight,$path){
+    private function save_gif($image,$width,$height,$path){
+        try {
+            system("convert " . $image . " -coalesce -repage 0x0 -resize " . $width . "x" . $height . " -layers Optimize "
+                    . $path . '/' . $this->name);
+            return true;
+        }catch (Exception $e){
+            return false;
+        }
+    }
 
+    //zapis miniaturki gifa bez animacji
+    private function save_gif_thumb($new_image,$image,$width,$height,$oldwidth,$oldheight,$path){
+        try{
+            imagecolortransparent($new_image, imagecolorallocate($new_image, 0, 0, 0));
+            imagecopyresampled($image, $this->img, 0, 0, 0, 0, $oldwidth, $oldheight, $this->width, $this->height);
+            imagecopyresampled($new_image, $image, 0, 0, 0, 0, $width, $height, $oldwidth, $oldheight);
+            imagegif($new_image, $path . '/' . $this->name);
+            return true;
+        }catch (Exception $e){
+            return false;
+        }
     }
 
     private function delete_image($path,$name){
@@ -203,6 +226,13 @@ class Photo{
         if(file_exists($file)){
             unlink($file);
         }
+    }
+
+    public function getImg(){
+        return $this->img;
+    }
+    public function getThumb(){
+        return $this->thumb;
     }
 
 }

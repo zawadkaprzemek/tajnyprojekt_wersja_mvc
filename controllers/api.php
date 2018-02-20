@@ -177,7 +177,7 @@ class ApiController extends Controller{
             case 'upload':
                 foreach ($_FILES['files']['name'] as $i => $name){
                 $photo=new Photo($_REQUEST['user'],$_REQUEST['gallery'],$name,$_FILES['files']['tmp_name'][$i]);
-                    if($photo->img&&$photo->thumb){
+                    if($photo->getImg()&&$photo->getThumb()){
                         $success++;
                     }else{
                         $error++;

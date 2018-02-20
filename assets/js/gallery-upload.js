@@ -28,14 +28,14 @@ $(function () {
             var up_size=0;
             for(a=0;a<this.files.length;a++){
                 up_size+=parseInt(this.files[a].size);
-                if(this.files[a].size>2097152) {
+                if(this.files[a].size>5242880) {
                     size_ok=false;
                 }
             }
             if(!size_ok){
                 alert('Maksymalna wielkość wgrywanego zdjęcia to 2MB');
-            }else if(up_size>8388608){
-                alert('Maksymalnie możesz wgrać pliki o łącznej wielkości 8MB');
+            }else if(up_size>22367934){
+                alert('Maksymalnie możesz wgrać pliki o łącznej wielkości 20MB');
             }else{
                 var data = new FormData();
                 data.append('gallery', $('input[name="gallery"]:checked').val());

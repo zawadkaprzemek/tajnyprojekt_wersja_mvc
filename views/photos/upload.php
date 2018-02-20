@@ -10,7 +10,7 @@ $action=$_SERVER['PHP_SELF'];
                 <span class="btn btn-success fileinput-button">
                     <i class="glyphicon glyphicon-plus"></i>
                     <span>Dodaj zdjęcia...</span>
-                    <input type="file" name="files[]" id="addfiles" accept="image/*" multiple>
+                    <input type="file" name="files[]" id="addfiles" accept=".png, .jpg, .jpeg,.gif" multiple>
                 </span>
                 <input type="radio" id="public" name="gallery" value="public" checked>
                 <label for="public">Publiczna galeria</label>
