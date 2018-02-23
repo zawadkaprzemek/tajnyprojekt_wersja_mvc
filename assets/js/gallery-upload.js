@@ -33,7 +33,7 @@ $(function () {
                 }
             }
             if(!size_ok){
-                alert('Maksymalna wielkość wgrywanego zdjęcia to 2MB');
+                alert('Maksymalna wielkość wgrywanego zdjęcia to 5MB');
             }else if(up_size>22367934){
                 alert('Maksymalnie możesz wgrać pliki o łącznej wielkości 20MB');
             }else{
