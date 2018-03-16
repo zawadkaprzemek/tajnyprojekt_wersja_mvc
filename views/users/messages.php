@@ -12,7 +12,7 @@ $blocked=$model['users'][1]['is_blocked'];
             <?php echo $user_from;?>
             </a>
             <?php
-            if(is_vip($user_from,$model['users'][0]['account_type']!='')){
+            if($model['users'][0]['account_type']==2){
                 echo is_vip($user_from, $model['users'][0]['account_type']);
             }else{
                 echo '<i class="fa fa-gg-circle" aria-hidden="true"></i> '.$model['users'][0]['coins'];

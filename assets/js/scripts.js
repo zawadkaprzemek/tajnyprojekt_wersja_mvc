@@ -1,5 +1,5 @@
 $(function () {
-    var host="http://10.105.48.188/xplayroom2/";
+    var host="http://10.105.46.191/xplayroom2/";
     $("a[href=\"#\"]").click(function (event) {
         event.preventDefault();
         event.stopPropagation();
@@ -139,9 +139,9 @@ $(function () {
                 if(resp.resp=='success'){
                     var cont=$(parent).parent();
                     if(answer=='yes'){
-                        var mess='Zaakceptowano prośbę użytkownika <a href="profile.php?name='+user+'" target="_blank">'+user+'</a> o dostęp do prywatnej galerii';
+                        var mess='Zaakceptowano prośbę użytkownika <a href="'+host+'profile/show/'+user+'" target="_blank">'+user+'</a> o dostęp do prywatnej galerii';
                     }else{
-                        var mess='Odrzucono prośbę użytkownika <a href="profile.php?name='+user+'" target="_blank">'+user+'</a> o dostęp do prywatnej galerii';
+                        var mess='Odrzucono prośbę użytkownika <a href="'+host+'profile/show/'+user+'" target="_blank">'+user+'</a> o dostęp do prywatnej galerii';
                     }
                     $(cont).html(mess);
                     $(cont).append('<button type="button" class="close close-notif" data-dismiss="panel" data-notif="'+resp.id+'" aria-hidden="true">×</button>')

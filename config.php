@@ -8,7 +8,7 @@ define("DB_NAME", "dyskretna_przygoda");
 
 // Define URL
 define("ROOT_PATH", "/xplayroom2/");
-define("ROOT_URL", "http://10.105.48.188/xplayroom2/");
+define("ROOT_URL", "http://10.105.46.191/xplayroom2/");
 
 //zmienne do api
 define('API_TOKENS',serialize(array(md5(md5("DyskretnaPrzygoda")),md5(md5("PrzygodaDyskretna")))));

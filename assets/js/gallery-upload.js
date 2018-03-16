@@ -1,5 +1,5 @@
 $(function () {
-    var host ="http://10.105.48.188/xplayroom2/";
+    var host ="http://10.105.46.191/xplayroom2/";
     function jednostki(howmany){
         var jed='';
         if(howmany==1){

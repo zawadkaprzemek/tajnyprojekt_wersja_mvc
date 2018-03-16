@@ -41,8 +41,8 @@ function save_avatar($avatar,$av_name){
     list($type, $avatar) = explode(';', $avatar);
     list(, $avatar)      = explode(',', $avatar);
     $avatar = base64_decode($avatar);
-    $filepath = '../'.ROOT_PATH.AVATAR_PATH."/".$av_name;
-    if(file_put_contents($filepath,$avatar)){
+    $filepath = dirname(__FILE__).'/..'.ROOT_PATH.AVATAR_PATH.$av_name;
+    if(file_put_contents($filepath,$avatar)!==false){
         return true;
     }else{
         return false;
