@@ -3,12 +3,12 @@
 // Define DB Params
 define("DB_HOST", "localhost");
 define("DB_USER", "root");
-define("DB_PASS", "kisiello1989");
+define("DB_PASS", "");
 define("DB_NAME", "dyskretna_przygoda");
 
 // Define URL
 define("ROOT_PATH", "/xplayroom2/");
-define("ROOT_URL", "http://10.105.46.191/xplayroom2/");
+define("ROOT_URL", "/xplayroom2/");
 
 //zmienne do api
 define('API_TOKENS',serialize(array(md5(md5("DyskretnaPrzygoda")),md5(md5("PrzygodaDyskretna")))));
